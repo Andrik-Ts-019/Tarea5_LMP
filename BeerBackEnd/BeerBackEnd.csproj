@@ -91,21 +91,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Backend\BeerSC.cs" />
     <Compile Include="Controllers\BeersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Amount.cs" />
     <Compile Include="Models\BeerDTO.cs" />
-    <Compile Include="Models\BoilVolume.cs" />
-    <Compile Include="Models\Fermentation.cs" />
-    <Compile Include="Models\Hop.cs" />
-    <Compile Include="Models\Ingredients.cs" />
-    <Compile Include="Models\Malt.cs" />
-    <Compile Include="Models\MashTemp.cs" />
-    <Compile Include="Models\Method.cs" />
-    <Compile Include="Models\Temp.cs" />
-    <Compile Include="Models\Volume.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
