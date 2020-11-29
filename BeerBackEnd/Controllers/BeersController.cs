@@ -43,11 +43,12 @@ namespace BeerBackEnd.Controllers
 
         // .../api/beers/getBeerAttenuation?level=#
         [HttpGet]
-        public BeerDTO getBeerAttenuation(int level)
+        public List<BeerDTO> getBeerAttenuation(int level)
         {
-            return new BeerSC().getAllBeers().Where(w => w.attenuation_level == level).FirstOrDefault();
+            return new BeerSC().getAllBeers().Where(w => w.attenuation_level == level).ToList();
         }
 
+        // .../api/beers/addBeer
         [HttpPost]
         public List<BeerDTO> addBeer([FromBody] BeerDTO newbeer)
         {
