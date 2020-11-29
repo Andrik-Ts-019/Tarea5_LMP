@@ -32,7 +32,7 @@ namespace BeerBackEnd.Backend
             });
             response.Add(new BeerDTO
             {
-                id = 2
+                id = 2,
                 name = "Indio",
                 tagline = "La verde",
                 first_brewed = "1970",
@@ -82,7 +82,7 @@ namespace BeerBackEnd.Backend
                 ebc = 83.1,
                 srm = 2,
                 ph = 2,
-                attenuation_level = 34,
+                attenuation_level = 67,
                 food_pairing = new List<string>() { "La carnita asada", "Pastelillos espaciales" },
                 brewers_tips = "No tomar un día antes de entregar un trabajo de LMP",
                 contributed_by = "Dante Noemí Jazmín"
