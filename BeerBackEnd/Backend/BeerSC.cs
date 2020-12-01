@@ -144,8 +144,10 @@ namespace BeerBackEnd.Backend
         {
             try
             {
+                var allBeers = getAllBeers();
                 var beerToDelete = getBeerById(id);
-                getAllBeers().Remove(beerToDelete);
+                
+                allBeers.Remove(beerToDelete);
                 //DataContext.Beers.Remove;
                 //DataContext.SaveChanges;
             }
