@@ -22,7 +22,7 @@ namespace BeerBackEnd.Controllers
         [HttpGet]
         public BeerDTO getBeerById(int id)
         {
-            return new BeerSC().getAllBeers().Where(w => w.id == id).FirstOrDefault();
+            return new BeerSC().getBeerById(id);
         }
 
         // .../api/beers/getBeerByName?name=#
@@ -50,11 +50,27 @@ namespace BeerBackEnd.Controllers
 
         // .../api/beers/addBeer
         [HttpPost]
-        public List<BeerDTO> addBeer([FromBody] BeerDTO newbeer)
+        public BeerDTO addBeer([FromBody] BeerDTO newbeer)
         {
             var beers = new BeerSC().getAllBeers();
             beers.Add(newbeer);
-            return new BeerSC().getAllBeers();
+            return newbeer;
+        }
+
+        // .../api/beers/updateBeer
+        [HttpPut]
+        public BeerDTO updateBeer([FromBody] BeerDTO newbeer)
+        {
+            var beerUpdate = new BeerSC().updateProduct(newbeer);
+            return beerUpdate;
+        }
+
+        // .../api/beers/deleteBeer
+        [HttpDelete]
+        public bool deleteBeer(int id)
+        {
+            var beerDelete = new BeerSC().deleteBeer(id);
+            return beerDelete;
         }
     }
 }

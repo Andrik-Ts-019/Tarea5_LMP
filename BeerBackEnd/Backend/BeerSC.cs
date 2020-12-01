@@ -108,5 +108,54 @@ namespace BeerBackEnd.Backend
             });
             return response;
         }
+
+        public BeerDTO getBeerById(int id)
+        {
+            return getAllBeers().Where(w => w.id == id).FirstOrDefault();
+        }
+
+        public BeerDTO updateProduct(BeerDTO newbeer)
+        {
+            var productInDataBase = getBeerById(newbeer.id);
+
+            if (productInDataBase == null)
+                return null;
+
+            productInDataBase.name = newbeer.name;
+            productInDataBase.tagline = newbeer.tagline;
+            productInDataBase.first_brewed = newbeer.first_brewed;
+            productInDataBase.description = newbeer.description;
+            productInDataBase.abv = newbeer.abv;
+            productInDataBase.ibu = newbeer.ibu;
+            productInDataBase.target_fg = newbeer.target_fg;
+            productInDataBase.target_og = newbeer.target_og;
+            productInDataBase.ebc = newbeer.ebc;
+            productInDataBase.srm = newbeer.srm;
+            productInDataBase.ph = newbeer.ph;
+            productInDataBase.attenuation_level = newbeer.attenuation_level;
+            productInDataBase.food_pairing = newbeer.food_pairing;
+            productInDataBase.brewers_tips = newbeer.brewers_tips;
+            productInDataBase.contributed_by = newbeer.contributed_by;
+
+            return productInDataBase;
+        }
+
+        public bool deleteBeer(int id)
+        {
+            try
+            {
+                var beerToDelete = getBeerById(id);
+                getAllBeers().Remove(beerToDelete);
+                //DataContext.Beers.Remove;
+                //DataContext.SaveChanges;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+            
+            return true;
+        }
+
     }
 }
