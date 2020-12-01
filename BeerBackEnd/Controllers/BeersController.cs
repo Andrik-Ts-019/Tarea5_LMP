@@ -65,7 +65,7 @@ namespace BeerBackEnd.Controllers
             return beerUpdate;
         }
 
-        // .../api/beers/deleteBeer
+        // .../api/beers/deleteBeer?id=#
         [HttpDelete]
         public bool deleteBeer(int id)
         {
