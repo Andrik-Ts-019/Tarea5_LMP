@@ -186,10 +186,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Backend\BeerSC.cs" />
     <Compile Include="Controllers\BeersController.cs" />
+    <Compile Include="DataAccess\Beer.cs" />
+    <Compile Include="DataAccess\BeersContext.cs" />
+    <Compile Include="DataAccess\Food.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BeerDTO.cs" />
+    <Compile Include="Models\FoodPairing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -203,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DataAccess\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
