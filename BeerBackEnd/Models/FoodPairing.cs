@@ -10,6 +10,6 @@ namespace BeerBackEnd.Models
         public int id { get; set; }
         public int idBeer { get; set; }
         public string food_pairing { get; set; }
-        public virtual BeerDTO beer { get; set; }
+        public BeerDTO beer { get; set; }
     }
 }

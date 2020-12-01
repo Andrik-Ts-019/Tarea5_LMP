@@ -22,6 +22,6 @@ namespace BeerBackEnd.Models
         public double attenuation_level { get; set; }
         public string brewers_tips { get; set; }
         public string contributed_by { get; set; }
-        public virtual ICollection<FoodPairing> food_pairing { get; set; }
+        public ICollection<FoodPairing> food_pairing { get; set; }
     }
 }
