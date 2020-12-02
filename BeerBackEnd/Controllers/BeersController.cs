@@ -53,8 +53,7 @@ namespace BeerBackEnd.Controllers
         [HttpPost]
         public BeerDTO addBeer([FromBody] BeerDTO newbeer)
         {
-            var beers = new BeerSC().getAllBeers();
-            beers.Add(newbeer);
+            var beers = new BeerSC().addBeer(newbeer);
             return newbeer;
         }
 
