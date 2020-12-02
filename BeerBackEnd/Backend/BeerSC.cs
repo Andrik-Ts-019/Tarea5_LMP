@@ -10,11 +10,16 @@ namespace BeerBackEnd.Backend
     public class BeerSC
     {
         public BeersContext dataBase = new BeersContext();
-        
+
+        public IQueryable<Beer> getAllBeerFromDB()
+        {
+            return dataBase.Beer;
+        }
+
         public List<BeerDTO> getAllBeers()
         {
             var response = new List<BeerDTO>();
-            response = dataBase.Beer.Select(s => new BeerDTO
+            response = getAllBeerFromDB().Select(s => new BeerDTO
             {
                 id = s.Id,
                 name = s.Name,
@@ -37,33 +42,33 @@ namespace BeerBackEnd.Backend
             return response;
         }
 
-        public BeerDTO getBeerById(int id)
+        public Beer getBeerById(int id)
         {
-            return getAllBeers().Where(w => w.id == id).FirstOrDefault();
+            return getAllBeerFromDB().Where(w => w.Id == id).FirstOrDefault();
         }
 
-        public BeerDTO updateBeer(BeerDTO newbeer)
+        public Beer updateBeer(BeerDTO newbeer)
         {
             var beerInDataBase = getBeerById(newbeer.id);
 
             if (beerInDataBase == null)
                 return null;
 
-            beerInDataBase.name = newbeer.name;
-            beerInDataBase.tagline = newbeer.tagline;
-            beerInDataBase.first_brewed = newbeer.first_brewed;
-            beerInDataBase.description = newbeer.description;
-            beerInDataBase.abv = newbeer.abv;
-            beerInDataBase.ibu = newbeer.ibu;
-            beerInDataBase.target_fg = newbeer.target_fg;
-            beerInDataBase.target_og = newbeer.target_og;
-            beerInDataBase.ebc = newbeer.ebc;
-            beerInDataBase.srm = newbeer.srm;
-            beerInDataBase.ph = newbeer.ph;
-            beerInDataBase.attenuation_level = newbeer.attenuation_level;
-            beerInDataBase.food_pairing = newbeer.food_pairing;
-            beerInDataBase.brewers_tips = newbeer.brewers_tips;
-            beerInDataBase.contributed_by = newbeer.contributed_by;
+            beerInDataBase.Name = newbeer.name;
+            beerInDataBase.Tagline = newbeer.tagline;
+            beerInDataBase.FirstBrewed = newbeer.first_brewed;
+            beerInDataBase.Description = newbeer.description;
+            beerInDataBase.Abv = newbeer.abv;
+            beerInDataBase.Ibu = newbeer.ibu;
+            beerInDataBase.TargetFg = newbeer.target_fg;
+            beerInDataBase.TargetOg = newbeer.target_og;
+            beerInDataBase.Ebc = newbeer.ebc;
+            beerInDataBase.Srm = newbeer.srm;
+            beerInDataBase.Ph = newbeer.ph;
+            beerInDataBase.AttenuationLevel = newbeer.attenuation_level;
+            beerInDataBase.Food = null; //Sorry sé que después debo encontrar como hacerlo
+            beerInDataBase.BrewersTips = newbeer.brewers_tips;
+            beerInDataBase.ContributedBy = newbeer.contributed_by;
 
             return beerInDataBase;
         }
@@ -72,12 +77,10 @@ namespace BeerBackEnd.Backend
         {
             try
             {
-                var allBeers = getAllBeers();
                 var beerToDelete = getBeerById(id);
                 
-                allBeers.Remove(beerToDelete);
-                //DataContext.Beers.Remove;
-                //DataContext.SaveChanges;
+                dataBase.Beer.Remove(beerToDelete);
+                dataBase.SaveChanges();
             }
             catch(Exception)
             {
