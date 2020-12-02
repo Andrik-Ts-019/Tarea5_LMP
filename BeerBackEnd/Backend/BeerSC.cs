@@ -70,6 +70,8 @@ namespace BeerBackEnd.Backend
             beerInDataBase.BrewersTips = newbeer.brewers_tips;
             beerInDataBase.ContributedBy = newbeer.contributed_by;
 
+            dataBase.SaveChanges();
+
             return beerInDataBase;
         }
 
