@@ -28,9 +28,9 @@ namespace BeerBackEnd.Controllers
 
         // .../api/beers/getBeerByName?name=#
         [HttpGet]
-        public BeerDTO getBeerByName(string name)
+        public Beer getBeerByName(string name)
         {
-            return new BeerSC().getAllBeers().Where(w => w.name == name).FirstOrDefault();
+            return new BeerSC().getBeerByName(name);
         }
 
         // .../api/beers/getBeerRandom
@@ -44,9 +44,9 @@ namespace BeerBackEnd.Controllers
 
         // .../api/beers/getBeerAttenuation?level=#
         [HttpGet]
-        public List<BeerDTO> getBeerAttenuation(int level)
+        public List<BeerDTO> getBeerAttenuation(float level)
         {
-            return new BeerSC().getAllBeers().Where(w => w.attenuation_level == level).ToList();
+            return new BeerSC().getBeerByAttenuation(level);
         }
 
         // .../api/beers/addBeer
