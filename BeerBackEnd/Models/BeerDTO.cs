@@ -12,14 +12,14 @@ namespace BeerBackEnd.Models
         public string tagline { get; set; }
         public string first_brewed { get; set; }
         public string description { get; set; }
-        public double abv { get; set; }
-        public double ibu { get; set; }
-        public double target_fg { get; set; }
-        public double target_og { get; set; }
-        public double ebc { get; set; }
-        public double srm { get; set; }
-        public double ph { get; set; }
-        public double attenuation_level { get; set; }
+        public float abv { get; set; }
+        public float ibu { get; set; }
+        public float target_fg { get; set; }
+        public float target_og { get; set; }
+        public float ebc { get; set; }
+        public float srm { get; set; }
+        public float ph { get; set; }
+        public float attenuation_level { get; set; }
         public List<string> food_pairing { get; set; }
         public string brewers_tips { get; set; }
         public string contributed_by { get; set; }
