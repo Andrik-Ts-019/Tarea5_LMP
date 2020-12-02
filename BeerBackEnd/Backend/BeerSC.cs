@@ -42,30 +42,30 @@ namespace BeerBackEnd.Backend
             return getAllBeers().Where(w => w.id == id).FirstOrDefault();
         }
 
-        public BeerDTO updateProduct(BeerDTO newbeer)
+        public BeerDTO updateBeer(BeerDTO newbeer)
         {
-            var productInDataBase = getBeerById(newbeer.id);
+            var beerInDataBase = getBeerById(newbeer.id);
 
-            if (productInDataBase == null)
+            if (beerInDataBase == null)
                 return null;
 
-            productInDataBase.name = newbeer.name;
-            productInDataBase.tagline = newbeer.tagline;
-            productInDataBase.first_brewed = newbeer.first_brewed;
-            productInDataBase.description = newbeer.description;
-            productInDataBase.abv = newbeer.abv;
-            productInDataBase.ibu = newbeer.ibu;
-            productInDataBase.target_fg = newbeer.target_fg;
-            productInDataBase.target_og = newbeer.target_og;
-            productInDataBase.ebc = newbeer.ebc;
-            productInDataBase.srm = newbeer.srm;
-            productInDataBase.ph = newbeer.ph;
-            productInDataBase.attenuation_level = newbeer.attenuation_level;
-            productInDataBase.food_pairing = newbeer.food_pairing;
-            productInDataBase.brewers_tips = newbeer.brewers_tips;
-            productInDataBase.contributed_by = newbeer.contributed_by;
+            beerInDataBase.name = newbeer.name;
+            beerInDataBase.tagline = newbeer.tagline;
+            beerInDataBase.first_brewed = newbeer.first_brewed;
+            beerInDataBase.description = newbeer.description;
+            beerInDataBase.abv = newbeer.abv;
+            beerInDataBase.ibu = newbeer.ibu;
+            beerInDataBase.target_fg = newbeer.target_fg;
+            beerInDataBase.target_og = newbeer.target_og;
+            beerInDataBase.ebc = newbeer.ebc;
+            beerInDataBase.srm = newbeer.srm;
+            beerInDataBase.ph = newbeer.ph;
+            beerInDataBase.attenuation_level = newbeer.attenuation_level;
+            beerInDataBase.food_pairing = newbeer.food_pairing;
+            beerInDataBase.brewers_tips = newbeer.brewers_tips;
+            beerInDataBase.contributed_by = newbeer.contributed_by;
 
-            return productInDataBase;
+            return beerInDataBase;
         }
 
         public bool deleteBeer(int id)

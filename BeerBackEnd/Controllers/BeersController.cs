@@ -61,7 +61,7 @@ namespace BeerBackEnd.Controllers
         [HttpPut]
         public BeerDTO updateBeer([FromBody] BeerDTO newbeer)
         {
-            var beerUpdate = new BeerSC().updateProduct(newbeer);
+            var beerUpdate = new BeerSC().updateBeer(newbeer);
             return beerUpdate;
         }
 
