@@ -47,6 +47,38 @@ namespace BeerBackEnd.Backend
             return getAllBeerFromDB().Where(w => w.Id == id).FirstOrDefault();
         }
 
+        public Beer getBeerByName(string name)
+        {
+            return getAllBeerFromDB().Where(w => w.Name == name).FirstOrDefault();
+        }
+
+        public List<BeerDTO> getBeerByAttenuation(float level)
+        {
+            var response = new List<BeerDTO>();
+
+            response = getAllBeerFromDB().Where(w => w.AttenuationLevel == level).Select(s => new BeerDTO
+            {
+                id = s.Id,
+                name = s.Name,
+                tagline = s.Tagline,
+                first_brewed = s.FirstBrewed,
+                description = s.Description,
+                abv = s.Abv,
+                ibu = s.Ibu,
+                target_fg = s.TargetFg,
+                target_og = s.TargetOg,
+                ebc = s.Ebc,
+                srm = s.Srm,
+                ph = s.Ph,
+                attenuation_level = s.AttenuationLevel,
+                food_pairing = null, //Sorry sé que después debo encontrar como hacerlo (from x in s.Food where x.Id==s.Id select x.FoodPairing).ToList(),
+                brewers_tips = s.BrewersTips,
+                contributed_by = s.ContributedBy
+            }).ToList();
+
+            return response;
+        }
+
         public Beer updateBeer(BeerDTO newbeer)
         {
             var beerInDataBase = getBeerById(newbeer.id);
