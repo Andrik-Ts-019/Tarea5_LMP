@@ -20,8 +20,8 @@ namespace BeerBackEnd.Models
         public double srm { get; set; }
         public double ph { get; set; }
         public double attenuation_level { get; set; }
+        public List<string> food_pairing { get; set; }
         public string brewers_tips { get; set; }
         public string contributed_by { get; set; }
-        public ICollection<FoodPairing> food_pairing { get; set; }
     }
 }
