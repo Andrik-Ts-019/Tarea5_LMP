@@ -1,4 +1,5 @@
 ﻿using BeerBackEnd.Backend;
+using BeerBackEnd.DataAccess;
 using BeerBackEnd.Models;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace BeerBackEnd.Controllers
 
         // .../api/beers/getBeerById?id=#
         [HttpGet]
-        public BeerDTO getBeerById(int id)
+        public Beer getBeerById(int id)
         {
             return new BeerSC().getBeerById(id);
         }
@@ -59,7 +60,7 @@ namespace BeerBackEnd.Controllers
 
         // .../api/beers/updateBeer
         [HttpPut]
-        public BeerDTO updateBeer([FromBody] BeerDTO newbeer)
+        public Beer updateBeer([FromBody] BeerDTO newbeer)
         {
             var beerUpdate = new BeerSC().updateBeer(newbeer);
             return beerUpdate;
