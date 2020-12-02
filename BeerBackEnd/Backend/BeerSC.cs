@@ -34,7 +34,7 @@ namespace BeerBackEnd.Backend
                 srm = s.Srm,
                 ph = s.Ph,
                 attenuation_level = s.AttenuationLevel,
-                food_pairing = (from x in s.Food where x.Id==s.Id select x.FoodPairing).ToList(),
+                food_pairing = null, //Sorry sé que después debo encontrar como hacerlo (from x in s.Food where x.Id==s.Id select x.FoodPairing).ToList(),
                 brewers_tips = s.BrewersTips,
                 contributed_by = s.ContributedBy
             }).ToList();
@@ -73,6 +73,32 @@ namespace BeerBackEnd.Backend
             dataBase.SaveChanges();
 
             return beerInDataBase;
+        }
+
+        public Beer addBeer(BeerDTO newbeer)
+        {
+            var newBeerInDB = new Beer();
+
+            newBeerInDB.Name = newbeer.name;
+            newBeerInDB.Tagline = newbeer.tagline;
+            newBeerInDB.FirstBrewed = newbeer.first_brewed;
+            newBeerInDB.Description = newbeer.description;
+            newBeerInDB.Abv = newbeer.abv;
+            newBeerInDB.Ibu = newbeer.ibu;
+            newBeerInDB.TargetFg = newbeer.target_fg;
+            newBeerInDB.TargetOg = newbeer.target_og;
+            newBeerInDB.Ebc = newbeer.ebc;
+            newBeerInDB.Srm = newbeer.srm;
+            newBeerInDB.Ph = newbeer.ph;
+            newBeerInDB.AttenuationLevel = newbeer.attenuation_level;
+            newBeerInDB.Food = null; //Sorry sé que después debo encontrar como hacerlo
+            newBeerInDB.BrewersTips = newbeer.brewers_tips;
+            newBeerInDB.ContributedBy = newbeer.contributed_by;
+
+            dataBase.Beer.Add(newBeerInDB);
+            dataBase.SaveChanges();
+            
+            return newBeerInDB;
         }
 
         public bool deleteBeer(int id)
